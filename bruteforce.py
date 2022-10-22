@@ -38,26 +38,29 @@ def bruteforce(ciphertext, tag, nonce) -> str:
             return
 
 
-def countdown():
-    for i in range(3, 0, -1):
-        print(f"Starting in {i}...", end="\r")
-        sys.stdout.write("\033[K")
-        time.sleep(1)
-
-
 def main():
     os.system("clear")
     print(BANNER)
 
     key = b"aaaavnrd"
-    plaintext = "Hello World"
+    plaintext = "BRUT3F0RC3 4TT4CK 1S 4W350M3"
     nonce, ciphertext, tag = utils.encrypt(plaintext, key)
+
+    print("========== How does it work ? ==========")
+    print("[aaaaaaaa], [aaaaaaab], [aaaaaaac] ... [zzzzzzzz]")
+    print("Does this key allows to decrypt the ciphertext ? Y/N")
+
+    print()
 
     print("========== PARAMETERS ==========")
     print(f"Using '{key.decode()}' as key.")
     print(f"Plaintext to find : {plaintext}")
+    print()
+    print("===== What do we have ? =====")
     print(f"Cipher text: {ciphertext}")
-    countdown()
+
+    print()
+    input("Press enter to start...")
     print()
 
     start = time.time()

@@ -34,20 +34,19 @@ def bruteforce_wordlist(ciphertext, tag, nonce, wordlist) -> None:
                 pass
 
 
-def countdown():
-    for i in range(10, 0, -1):
-        print(f"Starting in {i}...", end="\r")
-        sys.stdout.write("\033[K")
-        time.sleep(1)
-
-
 def main():
     os.system("clear")
     print(BANNER)
 
     key = b"password"
-    plaintext = "Hello World"
+    plaintext = "W0RDL1ST 4TT4CK 1S 3FF1C13NT"
     nonce, ciphertext, tag = utils.encrypt(plaintext, key)
+
+    print("========== How does it work ? ==========")
+    print("From a given file containing a list of keys")
+    print("Does this key allows to decrypt the ciphertext ? Y/N")
+
+    print()
 
     print("========== PARAMETERS ==========")
     print(f"Using '{key.decode()}' as key.")
@@ -55,7 +54,11 @@ def main():
     print(f"Cipher text: {ciphertext}")
     print("Wordlist size : 10000 words")
     print()
-    countdown()
+    print("===== What do we have ? =====")
+    print(f"Cipher text: {ciphertext}")
+
+    print()
+    input("Press enter to start...")
     print()
 
     start = time.time()
